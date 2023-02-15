@@ -25,6 +25,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ToDo {
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
@@ -33,18 +34,18 @@ public class ToDo {
   private long date;
 
   public String getDate() {
-    Date date= new Date(this.date*1000);
+    Date date = new Date(this.date * 1000);
     SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
-    return  sm.format(date);
+    return sm.format(date);
   }
-  public void setDate( String date) {
+
+  public void setDate(String date) {
     try {
       LocalDate d = LocalDate.parse(date);
       ZoneOffset zone = ZoneOffset.of("Z");
       LocalTime time = LocalTime.parse("00:00:00");
       this.date = d.toEpochSecond(time, zone);
-    }
-    catch (Exception e){
+    } catch (Exception e) {
       System.out.println(e.getMessage());
       System.out.println(date);
     }

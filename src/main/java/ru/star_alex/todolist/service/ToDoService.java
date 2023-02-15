@@ -15,22 +15,23 @@ import ru.star_alex.todolist.repository.ToDoRepository;
 @Slf4j
 @RequiredArgsConstructor
 public class ToDoService {
+
   private final ToDoRepository toDoRepository;
   private final ToDoMapper mapper;
 
   public List<ToDoDto> toDoList() {
     Iterable<ToDo> toDoIterable = toDoRepository.findAll();
     ArrayList<ToDoDto> toDoList = new ArrayList<>();
-    for (ToDo toDo : toDoIterable){
+    for (ToDo toDo : toDoIterable) {
       toDoList.add(mapper.toToDoDto(toDo));
     }
     return toDoList;
   }
 
- public ToDoDto add(ToDoDto dto){
-ToDo toDo = toDoRepository.save(mapper.toToDo(dto));
-return mapper.toToDoDto(toDo);
- }
+  public ToDoDto add(ToDoDto dto) {
+    ToDo toDo = toDoRepository.save(mapper.toToDo(dto));
+    return mapper.toToDoDto(toDo);
+  }
 
 
   public ToDoDto getById(int id) {
@@ -40,7 +41,7 @@ return mapper.toToDoDto(toDo);
 
 
   public void deleteById(int id) {
-     toDoRepository.deleteById(id);
+    toDoRepository.deleteById(id);
 
   }
 
@@ -53,18 +54,18 @@ return mapper.toToDoDto(toDo);
   public ToDoDto update(ToDoDto dto) {
     ToDo toDo = toDoRepository.save(mapper.toToDo(dto));
     return mapper.toToDoDto(toDo);
-    }
+  }
 
   public String index(Model model) {
     Iterable<ToDo> toDoIterable = toDoRepository.findAll();
     ArrayList<ToDo> toDoList = new ArrayList<>();
-    for (ToDo toDo : toDoIterable){
+    for (ToDo toDo : toDoIterable) {
       toDoList.add(toDo);
     }
-    model.addAttribute("ToDos",toDoList);
-    model.addAttribute("ToDosCount",toDoList.size());
+    model.addAttribute("ToDos", toDoList);
+    model.addAttribute("ToDosCount", toDoList.size());
     return "index";
   }
-  }
+}
 
 

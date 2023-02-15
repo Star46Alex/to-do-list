@@ -28,9 +28,7 @@ public interface ToDoController {
       @ApiResponse(responseCode = "401", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "403", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "500", content = @Content(mediaType = ""))})
-  ResponseEntity <List<ToDoDto>> toDoList ();
-
-
+  ResponseEntity<List<ToDoDto>> toDoList();
 
 
   @PostMapping("/toDos/")
@@ -41,7 +39,7 @@ public interface ToDoController {
       @ApiResponse(responseCode = "401", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "403", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "500", content = @Content(mediaType = ""))})
-  ResponseEntity<ToDoDto> add (ToDoDto toDoDto);
+  ResponseEntity<ToDoDto> add(ToDoDto toDoDto);
 
   @GetMapping("/toDos/{id}")
   @Operation(summary = "")
@@ -51,7 +49,7 @@ public interface ToDoController {
       @ApiResponse(responseCode = "401", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "403", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "500", content = @Content(mediaType = ""))})
-  ResponseEntity<ToDoDto> getById (@PathVariable int id);
+  ResponseEntity<ToDoDto> getById(@PathVariable int id);
 
   @DeleteMapping("/toDos/{id}")
   @Operation(summary = "")
@@ -61,17 +59,17 @@ public interface ToDoController {
       @ApiResponse(responseCode = "401", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "403", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "500", content = @Content(mediaType = ""))})
-  ResponseEntity dellById (@PathVariable int id);
+  ResponseEntity dellById(@PathVariable int id);
 
   @DeleteMapping("/toDos/")
   @Operation(summary = "")
-@ApiResponses(value = {
-    @ApiResponse(responseCode = "200", description = "", content = @Content(mediaType = "")),
-    @ApiResponse(responseCode = "400", content = @Content(mediaType = "")),
-    @ApiResponse(responseCode = "401", content = @Content(mediaType = "")),
-    @ApiResponse(responseCode = "403", content = @Content(mediaType = "")),
-    @ApiResponse(responseCode = "500", content = @Content(mediaType = ""))})
-  ResponseEntity dellAll ();
+  @ApiResponses(value = {
+      @ApiResponse(responseCode = "200", description = "", content = @Content(mediaType = "")),
+      @ApiResponse(responseCode = "400", content = @Content(mediaType = "")),
+      @ApiResponse(responseCode = "401", content = @Content(mediaType = "")),
+      @ApiResponse(responseCode = "403", content = @Content(mediaType = "")),
+      @ApiResponse(responseCode = "500", content = @Content(mediaType = ""))})
+  ResponseEntity dellAll();
 
   @PutMapping("/toDos/{id}")
   @Operation(summary = "")
@@ -81,7 +79,7 @@ public interface ToDoController {
       @ApiResponse(responseCode = "401", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "403", content = @Content(mediaType = "")),
       @ApiResponse(responseCode = "500", content = @Content(mediaType = ""))})
-  ResponseEntity<ToDoDto> update (ToDoDto toDoDto);
+  ResponseEntity<ToDoDto> update(ToDoDto toDoDto);
 
 }
 

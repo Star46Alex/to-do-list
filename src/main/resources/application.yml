@@ -5,11 +5,11 @@ spring:
     username: skillbox
     password: skillbox
 
-#  liquibase:
-#    enabled: true
-#    drop-first: false
-#    change-log: classpath:db/db-changelog-master.xml
-#    default-schema: public
+  #  liquibase:
+  #    enabled: true
+  #    drop-first: false
+  #    change-log: classpath:db/db-changelog-master.xml
+  #    default-schema: public
 
   jpa:
     show-sql: true
