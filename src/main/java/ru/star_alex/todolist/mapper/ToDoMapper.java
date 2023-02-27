@@ -7,7 +7,7 @@ import ru.star_alex.todolist.model.ToDo;
 @Mapper(componentModel = "spring")
 public interface ToDoMapper {
 
-  ToDoDto toToDoDto(ToDo toDo);
+    ToDoDto toToDoDto(ToDo toDo);
 
-  ToDo toToDo(ToDoDto toDoDto);
+    ToDo toToDo(ToDoDto toDoDto);
 }

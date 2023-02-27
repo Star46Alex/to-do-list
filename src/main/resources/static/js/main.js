@@ -1,10 +1,13 @@
 $(function () {
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
   const appendToDo = function (data) {
-    var ToDoCode = '<a href="#" class="ToDo-link" data-id="' +
-        data.id + '">' + data.name + '</a><br>';
-    $('#ToDo-list')
-    .append('<div>' + ToDoCode + '</div>');
+    // var ToDoCode = '<a href="#" class="ToDo-link" data-id="' +
+    //     data.id + '">' + data.name + '</a><br>';
+    // $('#ToDo-list')
+    // .append('<div>' + ToDoCode + '</div>');
+    location.reload();
   };
 
   //Loading ToDos on load page

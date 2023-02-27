@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,28 +27,28 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ToDo {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
-  private String name;
-  private String description;
-  private long date;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String name;
+    private String description;
+    private long date;
 
-  public String getDate() {
-    Date date = new Date(this.date * 1000);
-    SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
-    return sm.format(date);
-  }
-
-  public void setDate(String date) {
-    try {
-      LocalDate d = LocalDate.parse(date);
-      ZoneOffset zone = ZoneOffset.of("Z");
-      LocalTime time = LocalTime.parse("00:00:00");
-      this.date = d.toEpochSecond(time, zone);
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
-      System.out.println(date);
+    public String getDate() {
+        Date date = new Date(this.date * 1000);
+        SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
+        return sm.format(date);
     }
-  }
+
+    public void setDate(String date) {
+        try {
+            LocalDate d = LocalDate.parse(date);
+            ZoneOffset zone = ZoneOffset.of("Z");
+            LocalTime time = LocalTime.parse("00:00:00");
+            this.date = d.toEpochSecond(time, zone);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(date);
+        }
+    }
 }

@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class ToDoDto {
 
-  private int id;
-  private String name;
-  private String description;
-  private String date;
+    private int id;
+    private String name;
+    private String description;
+    private String date;
 
 }
